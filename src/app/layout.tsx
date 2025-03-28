@@ -1,33 +1,27 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { Provider } from "@/components/ui/provider"
+import type { Metadata } from 'next';
+import { Geist } from 'next/font/google';
+import './globals.css';
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { Web3Provider } from '@/providers/Web3Provider';
 
 export const metadata: Metadata = {
-  title: "WisdomSeed College",
-  description: "web3 college for wisdom",
+  title: 'WisdomSeed College',
+  description: 'web3 college for wisdom',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-       <Provider>{children}</Provider> 
+    <html lang="en" className={geistSans.className}>
+      <body>
+        <Web3Provider>{children}</Web3Provider>
       </body>
     </html>
   );

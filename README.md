@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WisdomSeed College
 
-## Getting Started
+Web3 教育平台
 
-First, run the development server:
+## 开发环境设置
+
+### 环境变量配置
+
+1. 复制环境变量示例文件：
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 配置环境变量：
+   在 `.env` 文件中设置以下变量：
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```plaintext
+NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=你的项目ID  # 从 reown cloud 获取
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. 获取 WalletConnect Project ID:
 
-## Learn More
+- 访问 [cloud.reown.com](https://cloud.reown.com)
+- 注册/登录账号
+- 创建新项目
+- 复制项目 ID 到 `.env` 文件
 
-To learn more about Next.js, take a look at the following resources:
+### 启动开发服务器
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+注意：
 
-## Deploy on Vercel
+- 环境变量修改后需要重启开发服务器
+- 不要将 `.env` 文件提交到版本控制
+- 请确保 `.env` 已添加到 `.gitignore`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 技术栈
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js
+- Wagmi/RainbowKit
+- TailwindCSS
+- shadcn/ui
+
+```
+
+```
