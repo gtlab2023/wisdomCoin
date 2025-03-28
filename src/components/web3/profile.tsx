@@ -2,7 +2,8 @@
 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
-export function WalletConnect() {
+// 显示钱包状态和个人资料，下拉菜单
+export function Profile() {
   return (
     <div>
       <ConnectButton />
