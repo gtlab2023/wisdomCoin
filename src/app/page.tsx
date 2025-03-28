@@ -1,5 +1,5 @@
 'use client';
-
+import { WalletConnect } from '@/components/web3/WalletConnect';
 export default function Home() {
-  return <div></div>;
+  return <WalletConnect></WalletConnect>;
 }
