@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 1024
+
+Resources:
+  NextjsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .next/standalone
+      Handler: server.handler
+      Runtime: nodejs18.x
+      Events:
+        HttpAPI:
+          Type: HttpApi
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
