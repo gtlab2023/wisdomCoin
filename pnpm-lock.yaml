@@ -32,6 +32,9 @@ importers:
       lucide-react:
         specifier: ^0.484.0
         version: 0.484.0(react@19.0.0)
+      mockjs:
+        specifier: ^1.1.0
+        version: 1.1.0
       next:
         specifier: 15.2.3
         version: 15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -2907,6 +2910,10 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  mockjs@1.1.0:
+    resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==}
+    hasBin: true
 
   modern-ahocorasick@1.1.0:
     resolution: {integrity: sha512-sEKPVl2rM+MNVkGQt3ChdmD8YsigmXdn5NifZn6jiwn9LRJpWm8F3guhaqrJT/JOat6pwpbXEk6kv+b9DMIjsQ==}
@@ -7821,6 +7828,10 @@ snapshots:
   mipd@0.0.7(typescript@5.8.2):
     optionalDependencies:
       typescript: 5.8.2
+
+  mockjs@1.1.0:
+    dependencies:
+      commander: 13.1.0
 
   modern-ahocorasick@1.1.0: {}
 

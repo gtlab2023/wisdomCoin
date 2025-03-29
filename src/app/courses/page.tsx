@@ -1,5 +1,5 @@
 'use client';
-
+import { useState, useEffect } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -11,6 +11,8 @@ import { LessonCourse, SeriesCourse } from '@/interfaces/courses';
 import SeriesCourseCard from '@/components/common/SeriesCourseCard';
 import LessonCourseCard from '@/components/common/LessonCourseCard';
 export default function Courses() {
+  const [courses, setCourses] = useState<LessonCourse[]>([]);
+  const [loading, setLoading] = useState(true);
   const oneSerieCourse = new SeriesCourse({
     title: '系列课1',
     author: 'yideng',
@@ -28,17 +30,37 @@ export default function Courses() {
     Object.assign({}, oneSerieCourse, { seriesId: '3' }),
     Object.assign({}, oneSerieCourse, { seriesId: '4' }),
   ];
-  const lesson = new LessonCourse({
-    title: '课程1',
-    author: 'yideng',
-    description: '描述',
-    duration: 0,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    tags: [],
-    coverImage: '',
-    id: '1',
-  });
+  // const lesson = new LessonCourse({
+  //   title: '课程1',
+  //   author: 'yideng',
+  //   description: '描述',
+  //   duration: 0,
+  //   createdAt: new Date(),
+  //   updatedAt: new Date(),
+  //   tags: [],
+  //   coverImage: '',
+  //   id: '1',
+  // });
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch('/api/courses');
+        const result = await response.json();
+        console.log('result.data -=', result.data);
+        setCourses(result.data);
+      } catch (error) {
+        console.error('Error fetching courses:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  if (loading) {
+    return <div>加载中...</div>;
+  }
   return (
     <div className="min-h-screen ">
       {/* Banner Section */}
@@ -69,7 +91,9 @@ export default function Courses() {
             <button className="text-blue-600">更多分类</button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <LessonCourseCard lesson={lesson} />
+            {courses.map((lesson) => (
+              <LessonCourseCard lesson={lesson} key={lesson?.id} />
+            ))}
           </div>
         </div>
       </section>

@@ -14,7 +14,7 @@ export default function LessonCourseCard({ lesson }: LessonCourseCardProps) {
       <CardContent className="p-4">
         <div className="aspect-video mb-4 bg-gray-100 rounded-lg overflow-hidden relative">
           <Image
-            src="/placeholder.jpg"
+            src={lesson.coverImage}
             alt="Course thumbnail"
             fill
             className="object-cover"
