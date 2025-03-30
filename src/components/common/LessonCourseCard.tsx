@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { LessonCourse } from '@/interfaces/courses';
 
 interface LessonCourseCardProps {
@@ -9,8 +10,16 @@ interface LessonCourseCardProps {
 }
 
 export default function LessonCourseCard({ lesson }: LessonCourseCardProps) {
+  const router = useRouter();
+  console.log('lesson -=', lesson);
+  function handleClick(lesson: LessonCourse) {
+    router.push(`/courseDetail?id=${lesson.id ? lesson.id : 123}`);
+  }
   return (
-    <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
+    <Card
+      className="group cursor-pointer hover:shadow-lg transition-shadow"
+      onClick={() => handleClick(lesson)}
+    >
       <CardContent className="p-4">
         <div className="aspect-video mb-4 bg-gray-100 rounded-lg overflow-hidden relative">
           <Image
