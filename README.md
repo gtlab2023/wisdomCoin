@@ -2,7 +2,33 @@
 
 Web3 教育平台
 
-## 开发环境设置
+## 环境配置
+
+### AWS S3 配置
+
+1. 登录 AWS 控制台：https://aws.amazon.com/console/
+
+2. 创建 IAM 用户：
+
+   - 进入 IAM 服务
+   - 点击"用户" -> "创建用户"
+   - 输入用户名（如：wisdom-seed-admin）
+   - 选择"访问类型"为"编程访问"
+
+3. 设置权限：
+
+   - 选择"直接附加策略"
+   - 搜索并添加 "AmazonS3FullAccess" 策略
+
+4. 保存密钥：
+   - 复制生成的 Access Key ID 和 Secret Access Key
+   - 将密钥添加到 .env 文件：
+   ```env
+   AWS_ACCESS_KEY_ID=你的访问密钥ID
+   AWS_SECRET_ACCESS_KEY=你的私有访问密钥
+   AWS_REGION=us-east-1
+   AWS_BUCKET_NAME=你的存储桶名称
+   ```
 
 ### 环境变量配置
 
