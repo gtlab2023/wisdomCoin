@@ -4,7 +4,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import headerNavLinks from '@/config/headerNavLinks';
 import { Profile } from '@/components/web3/profile';
-
+import { AddCourseDialog } from '@/components/web3/AddCourseDialog';
 export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
@@ -30,7 +30,10 @@ export default function Header() {
           Get Started
         </Button>
       ) : (
-        <Profile />
+        <>
+          <Profile />
+          <AddCourseDialog />
+        </>
       )}
     </nav>
   );
