@@ -12,6 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+// import { Textarea } from "@/components/ui/textarea";
 import { useCourseMarket } from '@/hooks/contracts/useCourseMarket';
 
 export function AddCourseDialog() {
@@ -75,6 +76,16 @@ export function AddCourseDialog() {
               className="col-span-3"
             />
           </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="picture" className="text-right">
+              上传图片
+            </Label>
+            <Input id="picture" type="file" className="col-span-3"></Input>
+          </div>
+          {/* <div>
+            <Label id="describe">课程描述</Label>
+            <Textarea placeholder="Type your message here." />
+          </div> */}
           <div className="flex justify-end gap-3">
             <Button type="submit" disabled={isPending}>
               {isPending ? '添加中...' : '添加'}
