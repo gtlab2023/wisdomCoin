@@ -1,7 +1,7 @@
 interface ICourse {
   title: string;
   description: string;
-  coverImage?: string;
+  coverImage: string;
   duration: number; // 课程时长（分钟）
   createdAt: Date;
   updatedAt: Date;
@@ -11,7 +11,7 @@ interface ICourse {
 abstract class BaseCourse implements ICourse {
   title: string;
   description: string;
-  coverImage?: string;
+  coverImage: string;
   duration: number;
   createdAt: Date;
   updatedAt: Date;
