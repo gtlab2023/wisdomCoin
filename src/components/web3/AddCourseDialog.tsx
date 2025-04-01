@@ -12,6 +12,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { ImageUpload } from '@/components/ui/imageUpload';
 import { useCourseMarket } from '@/hooks/contracts/useCourseMarket';
 
 export function AddCourseDialog() {
@@ -73,6 +75,28 @@ export function AddCourseDialog() {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               className="col-span-3"
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="picture" className="text-right">
+              上传图片
+            </Label>
+            <ImageUpload
+              className="col-span-3"
+              onImageChange={async (imageUrl) => {
+                console.log('上传的图片URL:', imageUrl);
+                // file 参数包含了上传的文件信息
+                // 可以在这里处理上传成功后的逻辑
+              }}
+            ></ImageUpload>
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label id="describe" className="text-right">
+              课程描述
+            </Label>
+            <Textarea
+              className="col-span-3"
+              placeholder="Type your message here."
             />
           </div>
           <div className="flex justify-end gap-3">
