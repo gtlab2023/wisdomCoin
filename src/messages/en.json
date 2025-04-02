@@ -1,0 +1,21 @@
+{
+  "Index": {
+    "title": "Wisdom Seed College",
+    "description": "Web3-based Online Learning Platform",
+    "getStarted": "Get Started",
+    "exploreCourses": "Explore Courses"
+  },
+  "Navigation": {
+    "home": "Home",
+    "courses": "Courses",
+    "about": "About Us",
+    "profile": "Profile"
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "Error occurred",
+    "retry": "Retry",
+    "connect": "Connect Wallet",
+    "disconnect": "Disconnect"
+  }
+}

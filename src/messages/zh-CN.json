@@ -1,0 +1,21 @@
+{
+  "Index": {
+    "title": "智慧种子学院",
+    "description": "基于Web3的在线学习平台",
+    "getStarted": "开始学习",
+    "exploreCourses": "探索课程"
+  },
+  "Navigation": {
+    "home": "首页",
+    "courses": "课程",
+    "about": "关于我们",
+    "profile": "个人中心"
+  },
+  "Common": {
+    "loading": "加载中...",
+    "error": "出错了",
+    "retry": "重试",
+    "connect": "连接钱包",
+    "disconnect": "断开连接"
+  }
+}
