@@ -1,9 +1,58 @@
 {
   "Index": {
-    "title": "Wisdom Seed College",
+    "title": "Web3 Front End College",
     "description": "Web3-based Online Learning Platform",
     "getStarted": "Get Started",
-    "exploreCourses": "Explore Courses"
+    "exploreCourses": "Explore Courses",
+    "hero": {
+      "title": "Unlock Knowledge, Earn Rewards",
+      "description": "Unlock tokens, points and NFTs while learning and contributing courses to earn rewards.",
+      "buttonText": "Join Now"
+    },
+    "offerings": {
+      "title": "Explore Our Offerings",
+      "cryptoRewards": {
+        "title": "Crypto Rewards",
+        "description": "Earn crypto for contributing content and promoting the platform."
+      },
+      "nftRewards": {
+        "title": "NFT Rewards",
+        "description": "Complete courses to receive unique NFT rewards."
+      },
+      "learnEarn": {
+        "title": "Learn & Earn",
+        "description": "Watch videos and read articles to learn and earn simultaneously."
+      }
+    },
+    "featuredContent": {
+      "title": "Featured Content",
+      "blockchain": {
+        "title": "Blockchain Basics",
+        "description": "Discover the fundamentals of blockchain and its applications in various industries."
+      },
+      "defi": {
+        "title": "Decentralized Finance",
+        "description": "Explore the world of decentralized finance and how it is transforming the financial landscape."
+      }
+    },
+    "footer": {
+      "about": {
+        "title": "WisdomSeed",
+        "content": "Empowering education with blockchain technology."
+      },
+      "quickLinks": {
+        "title": "Quick Links",
+        "courses": "Courses",
+        "home": "Home",
+        "articles": "Articles",
+        "rewards": "Rewards"
+      },
+      "contact": {
+        "title": "Contact Us",
+        "email": "Email",
+        "phone": "Iphone"
+      }
+    }
   },
   "Navigation": {
     "home": "Home",

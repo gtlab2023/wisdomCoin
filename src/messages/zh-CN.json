@@ -1,9 +1,58 @@
 {
   "Index": {
-    "title": "智慧种子学院",
+    "title": "Web3前端大学",
     "description": "基于Web3的在线学习平台",
     "getStarted": "开始学习",
-    "exploreCourses": "探索课程"
+    "exploreCourses": "探索课程",
+    "hero": {
+      "title": "解锁知识，赢取奖励",
+      "description": "通过学习和贡献课程，解锁代币、积分和NFT奖励。",
+      "buttonText": "立即加入"
+    },
+    "offerings": {
+      "title": "探索我们的服务",
+      "cryptoRewards": {
+        "title": "加密货币奖励",
+        "description": "通过贡献内容和推广平台赚取加密货币。"
+      },
+      "nftRewards": {
+        "title": "NFT奖励",
+        "description": "完成课程获得独特的NFT奖励。"
+      },
+      "learnEarn": {
+        "title": "边学边赚",
+        "description": "观看视频和阅读文章，同时学习和赚取奖励。"
+      }
+    },
+    "featuredContent": {
+      "title": "精选内容",
+      "blockchain": {
+        "title": "区块链基础",
+        "description": "探索区块链及其在各个行业中的应用基础。"
+      },
+      "defi": {
+        "title": "去中心化金融",
+        "description": "探索去中心化金融世界，了解它如何改变金融格局。"
+      }
+    },
+    "footer": {
+      "about": {
+        "title": "智慧种子",
+        "content": "用区块链技术赋能教育。"
+      },
+      "quickLinks": {
+        "title": "快速链接",
+        "home": "首页",
+        "courses": "课程",
+        "articles": "文章",
+        "rewards": "奖励"
+      },
+      "contact": {
+        "title": "联系我们",
+        "email": "邮箱",
+        "phone": "电话"
+      }
+    }
   },
   "Navigation": {
     "home": "首页",
