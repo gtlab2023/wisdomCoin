@@ -23,9 +23,10 @@ export default function LessonCourseCard({ lesson }: LessonCourseCardProps) {
       <CardContent className="p-4">
         <div className="aspect-video mb-4 bg-gray-100 rounded-lg overflow-hidden relative">
           <Image
-            src={lesson.coverImage}
+            src={lesson.coverUrl}
+            width={500}
+            height={500}
             alt="Course thumbnail"
-            fill
             className="object-cover"
           />
         </div>
@@ -34,12 +35,12 @@ export default function LessonCourseCard({ lesson }: LessonCourseCardProps) {
         </CardTitle>
         <div className="flex items-center gap-2 mb-2">
           <div className="w-6 h-6 rounded-full bg-gray-200" />
-          <span className="text-sm text-gray-600">{lesson.author}</span>
+          <span className="text-sm text-gray-600">
+            {lesson.author!.username}
+          </span>
         </div>
         <div className="flex items-center text-sm text-gray-500">
-          <span className="mx-2">·</span>
-          <span>4</span>
-          <span className="mx-2">·</span>
+          <span>{lesson.description}</span>
         </div>
       </CardContent>
     </Card>

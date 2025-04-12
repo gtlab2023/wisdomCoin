@@ -58,7 +58,7 @@ export default function CourseDetailClient({
         <div className="md:col-span-1">
           <div className="bg-gray-50 p-4 rounded-lg sticky top-4">
             <Image
-              src={course.coverImage}
+              src={course.coverUrl}
               alt={course.title}
               className="w-full rounded mb-4"
               width={400}
@@ -71,7 +71,7 @@ export default function CourseDetailClient({
               </div>
               <div>
                 <span className="font-semibold">作者：</span>
-                {course.author}
+                {course.author.username}
               </div>
               <div>
                 <span className="font-semibold">标签：</span>

@@ -20,9 +20,16 @@ export async function GET() {
       },
     });
 
-    return NextResponse.json(videos);
+    return NextResponse.json({
+      code: 200,
+      data: videos,
+      success: true,
+    });
   } catch (error) {
     console.error('Failed to fetch videos:', error);
-    return NextResponse.json({ error: '获取视频列表失败' }, { status: 500 });
+    return NextResponse.json(
+      { error: '获取视频列表失败', success: false },
+      { status: 500 }
+    );
   }
 }

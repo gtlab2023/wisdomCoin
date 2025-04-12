@@ -17,11 +17,12 @@ model User {
 
 model Video {
   id          Int      @id @default(autoincrement())
-  author      User     @relation(fields: [username], references: [username])
-  username    String
+  author      User     @relation(fields: [authorAddress], references: [addresss])
+  authorAddress String
   title       String
   description String?
   url         String
   coverUrl    String
+  price       String
   uploadedAt  DateTime @default(now())
 }

@@ -10,11 +10,13 @@ async function fetchCourse(id: string): Promise<LessonCourse> {
     id: id,
     title: 'React高级教程',
     description: '深入学习React的最佳实践',
-    coverImage: '/images/course-cover.jpg',
+    coverUrl: '/images/course-cover.jpg',
     duration: 120,
     createdAt: new Date(),
     updatedAt: new Date(),
-    author: 'John Doe',
+    author: {
+      username: 'John Doe',
+    },
     tags: ['React', 'Frontend', 'JavaScript'],
     type: 'lesson',
   } as LessonCourse;
