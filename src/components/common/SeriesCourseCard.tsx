@@ -15,7 +15,7 @@ export default function SeriesCourseCard({
         <h1 className="text-4xl font-bold mb-4">{serieCourse.title}</h1>
         <div className="flex gap-2 mb-4">
           <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-sm">
-            {serieCourse.author}
+            {serieCourse.author.username}
           </span>
           {serieCourse.tags.map((tag) => (
             <span

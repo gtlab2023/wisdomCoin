@@ -1,27 +1,33 @@
 interface ICourse {
   title: string;
   description: string;
-  coverImage: string;
+  coverUrl: string;
   duration: number; // 课程时长（分钟）
   createdAt: Date;
   updatedAt: Date;
-  author: string;
+  author: {
+    username: string;
+    address: string;
+  };
   tags: string[];
 }
 abstract class BaseCourse implements ICourse {
   title: string;
   description: string;
-  coverImage: string;
+  coverUrl: string;
   duration: number;
   createdAt: Date;
   updatedAt: Date;
-  author: string;
+  author: {
+    username: string;
+    address: string;
+  };
   tags: string[];
 
   constructor(course: ICourse) {
     this.title = course.title;
     this.description = course.description;
-    this.coverImage = course.coverImage;
+    this.coverUrl = course.coverUrl;
     this.duration = course.duration;
     this.createdAt = course.createdAt;
     this.updatedAt = course.updatedAt;

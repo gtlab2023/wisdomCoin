@@ -15,13 +15,16 @@ export default function Courses() {
   const [loading, setLoading] = useState(true);
   const oneSerieCourse = new SeriesCourse({
     title: '系列课1',
-    author: 'yideng',
+    author: {
+      username: 'yideng',
+      address: '123 Main St',
+    },
     description: '描述',
     duration: 0,
     createdAt: new Date(),
     updatedAt: new Date(),
     tags: [],
-    coverImage: '',
+    coverUrl: '',
     seriesId: '1',
   });
   const carouselCourses = [
@@ -38,15 +41,15 @@ export default function Courses() {
   //   createdAt: new Date(),
   //   updatedAt: new Date(),
   //   tags: [],
-  //   coverImage: '',
+  //   coverUrl: '',
   //   id: '1',
   // });
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch('/api/courses');
+        const response = await fetch('/api/video/getList');
         const result = await response.json();
-        console.log('result.data -=', result.data);
+        console.log('result.data -=', result);
         setCourses(result.data);
       } catch (error) {
         console.error('Error fetching courses:', error);
