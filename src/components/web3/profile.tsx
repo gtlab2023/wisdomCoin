@@ -4,6 +4,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { TokenExchange } from './TokenExchange';
 import { useYiDengToken } from '@/hooks/contracts/useYiDengToken';
 import { Coins } from 'lucide-react';
+import { LoginButton } from '@/components/auth/LoginButton';
 // 显示钱包状态和个人资料，下拉菜单
 export function Profile() {
   const { balance } = useYiDengToken();
@@ -18,6 +19,7 @@ export function Profile() {
       <div className="mr-2">
         <ConnectButton />
       </div>
+      <LoginButton />
       <TokenExchange />
     </div>
   );
