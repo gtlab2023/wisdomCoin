@@ -94,7 +94,7 @@ export default function Courses() {
             <button className="text-blue-600">更多分类</button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {courses.map((lesson) => (
+            {courses?.map((lesson) => (
               <LessonCourseCard lesson={lesson} key={lesson?.id} />
             ))}
           </div>
