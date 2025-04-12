@@ -75,7 +75,7 @@ function ImageUpload({
   }, [previewUrl]);
 
   return (
-    <div className="relative">
+    <div className="relative w-40">
       <input
         type="file"
         accept="image/*"

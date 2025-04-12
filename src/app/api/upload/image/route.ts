@@ -30,11 +30,9 @@ export async function POST(req: NextRequest) {
       Key: `images/${fileName}`,
       Body: buffer,
       ContentType: file.type,
-      ACL: 'public-read', // 确保文件可公开访问
     });
 
     await s3Client.send(command);
-
     // 返回文件 URL
     const fileUrl = `https://${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/images/${fileName}`;
 

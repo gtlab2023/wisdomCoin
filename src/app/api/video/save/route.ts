@@ -2,13 +2,21 @@ import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
-
+export interface ICourseInfo {
+  title: string;
+  description: string;
+  videoUrl: string;
+  address: string;
+  coverUrl: string;
+  price: string;
+}
 export async function POST(request: Request) {
   try {
-    const { title, description, url, address, coverUrl } = await request.json();
+    const { title, description, videoUrl, address, coverUrl, price } =
+      await request.json();
 
     // 数据验证
-    if (!title || !url || !address || !coverUrl) {
+    if (!title || !videoUrl || !address || !coverUrl || !price) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -19,10 +27,15 @@ export async function POST(request: Request) {
       data: {
         title,
         description: description || '',
-        url,
-        username: address, // 暂时使用 address 作为 username
+        url: videoUrl,
         coverUrl,
-        author: address, // 后续使用jwt获取
+        price,
+        authorAddress: address,
+        author: {
+          connect: {
+            addresss: address,
+          },
+        },
       },
     });
 

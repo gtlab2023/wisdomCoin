@@ -30,7 +30,11 @@ export const useCheckCourse = (userAddress: string, web2CourseId: string) => {
   return isHas;
 };
 export function useCourseMarket() {
-  const { writeContract, status: writeStatus } = useWriteContract();
+  const {
+    writeContract,
+    writeContractAsync,
+    status: writeStatus,
+  } = useWriteContract();
 
   // 购买课程
   const handlePurchase = async (web2CourseId: string) => {
@@ -54,7 +58,7 @@ export function useCourseMarket() {
     price: bigint
   ) => {
     try {
-      await writeContract({
+      await writeContractAsync({
         address: COURSE_MARKET_ADDRESS,
         abi: CourseMarketABI,
         functionName: 'addCourse',

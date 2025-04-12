@@ -15,20 +15,30 @@ export async function uploadToPinata(file: File) {
     name: file.name,
   });
   pinataFormData.append('pinataMetadata', metadata);
+  let response: { data: Record<string, string> } = { data: {} };
+  try {
+    response = await axios.post(
+      'https://api.pinata.cloud/pinning/pinFileToIPFS',
+      pinataFormData,
+      {
+        maxBodyLength: Infinity,
+        headers: {
+          ...pinataFormData.getHeaders(),
+          pinata_api_key: process.env.PINATA_API_KEY,
+          pinata_secret_api_key: process.env.PINATA_SECRET_API_KEY,
+        },
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
 
-  const response = await axios.post(
-    'https://api.pinata.cloud/pinning/pinFileToIPFS',
-    pinataFormData,
-    {
-      maxBodyLength: Infinity,
-      headers: {
-        ...pinataFormData.getHeaders(),
-        pinata_api_key: process.env.PINATA_API_KEY,
-        pinata_secret_api_key: process.env.PINATA_SECRET_API_KEY,
-      },
-    }
-  );
-
+  if (!response.data.IpfsHash) {
+    return {
+      success: false,
+      error: response.data,
+    };
+  }
   return {
     success: true,
     ipfsHash: response.data.IpfsHash,
