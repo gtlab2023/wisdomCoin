@@ -14,7 +14,7 @@ export default function VideoPlayer({ videoId }: VideoPlayerProps) {
           ref={videoRef} // 绑定 ref
           className="w-full h-full"
           controls
-          controlslist="nodownload"
+          controlsList="nodownload"
           src={videoUrl}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
