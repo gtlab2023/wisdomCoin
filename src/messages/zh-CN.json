@@ -65,6 +65,8 @@
     "error": "出错了",
     "retry": "重试",
     "connect": "连接钱包",
-    "disconnect": "断开连接"
+    "disconnect": "断开连接",
+    "tokenTransaction": "代币交易",
+    "addCourse": "添加课程"
   }
 }

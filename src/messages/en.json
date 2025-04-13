@@ -65,6 +65,8 @@
     "error": "Error occurred",
     "retry": "Retry",
     "connect": "Connect Wallet",
-    "disconnect": "Disconnect"
+    "disconnect": "Disconnect",
+    "tokenTransaction": "Token Transaction",
+    "addCourse": "Add Course"
   }
 }

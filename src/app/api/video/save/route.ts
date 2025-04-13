@@ -22,6 +22,20 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+    const existingUser = await prisma.user.findUnique({
+      where: { address: address },
+    });
+    console.log('Existing user:', existingUser, address);
+    // 确保用户存在，不存在则创建
+    await prisma.user.upsert({
+      where: { address: address }, // 修复 address 拼写
+      update: {},
+      create: {
+        // 修复语法错误
+        address: address,
+        username: `user_${address.toLowerCase().slice(2, 8)}`, // 使用地址的前8位作为用户名
+      },
+    });
 
     const video = await prisma.video.create({
       data: {
@@ -30,10 +44,9 @@ export async function POST(request: Request) {
         url: videoUrl,
         coverUrl,
         price,
-        authorAddress: address,
         author: {
           connect: {
-            addresss: address,
+            address: address,
           },
         },
       },

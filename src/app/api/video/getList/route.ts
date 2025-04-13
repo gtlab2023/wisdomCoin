@@ -11,7 +11,7 @@ export async function GET() {
         author: {
           select: {
             username: true,
-            addresss: true,
+            address: true,
           },
         },
       },

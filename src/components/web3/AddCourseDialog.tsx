@@ -18,7 +18,7 @@ import { ImageUpload } from '@/components/ui/imageUpload';
 import { useCourseMarket } from '@/hooks/contracts/useCourseMarket';
 import axios from 'axios';
 import { useAccount } from 'wagmi';
-
+import { useTranslations } from 'next-intl';
 // 将表单验证schema移到组件外部
 const courseSchema = z.object({
   web2CourseId: z.string().min(1, '课程ID是必填项'),
@@ -55,7 +55,7 @@ export function AddCourseDialog() {
     Partial<Record<keyof CourseForm, string>>
   >({});
   const { addCourse, isPending } = useCourseMarket();
-
+  const t = useTranslations('Common');
   const resetForm = () => {
     setFormData(initialFormData);
     setErrors({});
@@ -73,6 +73,7 @@ export function AddCourseDialog() {
       coverUrl: validatedData.coverUrl,
       videoUrl: validatedData.web2CourseId,
       address,
+      price: validatedData.price,
     });
   };
 
@@ -165,7 +166,7 @@ export function AddCourseDialog() {
     >
       <DialogTrigger asChild>
         <Button variant="outline" disabled={!address}>
-          添加课程
+          {t('addCourse')}
         </Button>
       </DialogTrigger>
       <DialogContent
@@ -178,7 +179,7 @@ export function AddCourseDialog() {
         }}
       >
         <DialogHeader>
-          <DialogTitle>添加课程</DialogTitle>
+          <DialogTitle>{t('addCourse')}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="grid gap-4 py-4">
           {formFields.map(renderField)}

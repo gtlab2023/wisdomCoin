@@ -9,13 +9,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-
+import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 export function TokenExchange() {
   const [ethAmount, setEthAmount] = useState('');
   const [tokenAmount, setTokenAmount] = useState('');
   const { buyTokens, sellTokens, remainingSupply, tokensPerEth, isPending } =
     useYiDengToken();
-
+  const t = useTranslations('Common');
   const handleBuy = async () => {
     try {
       await buyTokens(ethAmount);
@@ -37,13 +38,11 @@ export function TokenExchange() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-          代币交易
-        </button>
+        <Button>{t('tokenTransaction')}</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>代币交易</DialogTitle>
+          <DialogTitle>{t('tokenTransaction')}</DialogTitle>
         </DialogHeader>
         <div className="p-4">
           <div className="grid gap-4">
@@ -57,13 +56,9 @@ export function TokenExchange() {
                   placeholder="输入 ETH 数量"
                   className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 />
-                <button
-                  onClick={handleBuy}
-                  disabled={isPending}
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-                >
+                <Button onClick={handleBuy} disabled={isPending}>
                   {isPending ? '购买中...' : '购买'}
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -77,13 +72,9 @@ export function TokenExchange() {
                   placeholder="输入代币数量"
                   className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 />
-                <button
-                  onClick={handleSell}
-                  disabled={isPending}
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-                >
+                <Button onClick={handleSell} disabled={isPending}>
                   {isPending ? '卖出中...' : '卖出'}
-                </button>
+                </Button>
               </div>
             </div>
 

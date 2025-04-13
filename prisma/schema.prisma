@@ -11,13 +11,13 @@ model User {
   id        Int      @id @default(autoincrement())
   username  String   @unique
   createdAt DateTime @default(now())
-  addresss  String   @unique
+  address  String   @unique
   Video     Video[]
 }
 
 model Video {
   id          Int      @id @default(autoincrement())
-  author      User     @relation(fields: [authorAddress], references: [addresss])
+  author      User     @relation(fields: [authorAddress], references: [address])
   authorAddress String
   title       String
   description String?
